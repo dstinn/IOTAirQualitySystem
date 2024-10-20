@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView statusTextView = findViewById(R.id.statusTextView);
         final Button toggleButton = findViewById(R.id.toggleButton);
+        final Button mapButton = findViewById(R.id.mapButton);
 
         ledStatusRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Turned the LED ON", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MapView.class);
+                startActivity(intent);
             }
         });
     }
